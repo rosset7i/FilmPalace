@@ -1,0 +1,25 @@
+<form (submit)="salvarMudancas()" [formGroup]="form">
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input formControlName="nome" matInput/>
+    <mat-error *ngIf="form.invalid">{{ mensagemErro() }}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Data de Nascimento</mat-label>
+    <input
+      [matDatepicker]="picker"
+      formControlName="dataDeNascimento"
+      matInput/>
+    <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+    <mat-error>A data é obrigatoria!</mat-error>
+  </mat-form-field>
+
+  <div>
+    <button [disabled]="form.invalid" color="primary" mat-flat-button>
+      Salvar
+    </button>
+    <a color="warn" mat-flat-button routerLink="/atores">Cancelar</a>
+  </div>
+</form>

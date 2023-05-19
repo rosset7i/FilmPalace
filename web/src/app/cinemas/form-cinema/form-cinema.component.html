@@ -1,0 +1,14 @@
+<form (submit)="salvarMudancas()" [formGroup]="form">
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input formControlName="nome" matInput/>
+    <mat-error>O nome é obrigatorio!</mat-error>
+  </mat-form-field>
+
+  <div>
+    <button [disabled]="form.invalid" color="primary" mat-flat-button>
+      Salvar
+    </button>
+    <a color="warn" mat-flat-button routerLink="/cinemas/">Cancelar</a>
+  </div>
+</form>

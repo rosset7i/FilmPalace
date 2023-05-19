@@ -1,0 +1,61 @@
+<form (submit)="salvarMudancas()" [formGroup]="form">
+  <mat-form-field appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input formControlName="nome" matInput/>
+    <mat-error *ngIf="form.invalid">{{ mensagemErro() }}</mat-error>
+  </mat-form-field>
+
+  <div>
+    <mat-checkbox formControlName="noCinema">No cinema</mat-checkbox>
+  </div>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Data Lancamento</mat-label>
+    <input
+      [matDatepicker]="picker"
+      formControlName="dataDeLancamento"
+      matInput/>
+    <mat-datepicker-toggle [for]="picker" matSuffix></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Foto</mat-label>
+    <input formControlName="foto" matInput/>
+  </mat-form-field>
+
+  <div>
+    <img *ngIf="filmeModel" [src]="filmeModel.foto" alt=""/>
+  </div>
+
+  <h4>Selecione os Gêneros</h4>
+
+  <app-seletor
+    *ngIf="generosNaoSelecionados"
+    [itensNaoSelecionados]="generosNaoSelecionados"
+    [itensSelecionados]="generosSelecionados">
+  </app-seletor>
+
+  <h4>Selecione os Cinemas</h4>
+
+  <app-seletor
+    *ngIf="cinemasNaoSelecionados"
+    [itensNaoSelecionados]="cinemasNaoSelecionados"
+    [itensSelecionados]="cinemasSelecionados">
+  </app-seletor>
+
+  <h4>Selecione os Atores</h4>
+
+  <app-seletor
+    *ngIf="atoresNaoSelecionados"
+    [itensNaoSelecionados]="atoresNaoSelecionados"
+    [itensSelecionados]="atoresSelecionados">
+  </app-seletor>
+
+  <div>
+    <button [disabled]="form.invalid" color="primary" mat-flat-button>
+      Salvar
+    </button>
+    <a color="warn" mat-flat-button routerLink="/">Cancelar</a>
+  </div>
+</form>

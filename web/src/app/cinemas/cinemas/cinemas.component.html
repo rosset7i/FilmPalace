@@ -1,0 +1,29 @@
+<h2>Cinemas</h2>
+
+<button color="primary" mat-flat-button routerLink="/cinemas/criar">
+  Criar novo
+</button>
+
+<table [dataSource]="cinemaList" class="mat-elevation-z8 table-index" mat-table>
+  <ng-container matColumnDef="nome">
+    <th *matHeaderCellDef mat-header-cell>Nome</th>
+    <td *matCellDef="let elemento" mat-cell>{{ elemento.nome }}</td>
+  </ng-container>
+  <ng-container matColumnDef="acoes">
+    <th *matHeaderCellDef mat-header-cell>Ações</th>
+    <td *matCellDef="let elemento" mat-cell>
+      <a
+        color="primary"
+        mat-flat-button
+        routerLink="/cinemas/editar/{{ elemento.id }}"
+      >
+        Editar
+      </a>
+      <button (click)="delete(elemento.id)" color="warn" mat-flat-button>
+        Deletar
+      </button>
+    </td>
+  </ng-container>
+  <tr *matHeaderRowDef="colunas" mat-header-row></tr>
+  <tr *matRowDef="let row; columns: colunas" mat-row></tr>
+</table>

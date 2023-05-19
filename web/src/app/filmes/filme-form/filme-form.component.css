@@ -1,0 +1,12 @@
+button {
+  margin-right: 1rem;
+}
+mat-form-field {
+  margin-right: 1rem;
+}
+form {
+  max-width: 500px;
+}
+mat-checkbox {
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,7 @@
+<h2>Editar gênero</h2>
+
+<app-form-genero
+  (onSalvarMudancas)="salvarMudancas($event)"
+  *ngIf="generoModel"
+  [generoModel]="generoModel"
+></app-form-genero>

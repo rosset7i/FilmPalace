@@ -1,0 +1,27 @@
+<div class="filmes-container">
+  <div *ngFor="let filme of filmesList" class="filme-container">
+    <div>
+      <img [src]="filme.foto" alt="filme"/>
+    </div>
+    <p>
+      <a>{{ filme.nome }}</a>
+    </p>
+    <div>
+      <a
+        class="button"
+        color="primary"
+        mat-flat-button
+        routerLink="/filmes/editar/{{ filme.id }}">
+        Editar
+      </a>
+      <a
+        (click)="onRemove(filme.id)"
+        class="button"
+        color="warn"
+        mat-flat-button
+        type="button">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

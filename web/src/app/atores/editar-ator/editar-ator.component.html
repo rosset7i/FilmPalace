@@ -1,0 +1,7 @@
+<h2>Editar Ator</h2>
+
+<app-form-ator
+  (onSalvarMudancas)="salvarMudancas($event)"
+  *ngIf="atorModel"
+  [atorModel]="atorModel"
+></app-form-ator>

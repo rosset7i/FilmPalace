@@ -1,0 +1,7 @@
+<h2>Editar Cinema</h2>
+
+<app-form-cinema
+  (onSalvarMudancas)="salvarMudancas($event)"
+  *ngIf="cinemaModel"
+  [cinemaModel]="cinemaModel">
+</app-form-cinema>

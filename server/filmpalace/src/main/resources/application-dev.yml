@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/FilmPalace
+    username: postgres
+    password: 123qwe
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+      show-sql: true
+    database-plataform: org.hibernate.dialect.PostgresSQLDialect
+    properties:
+      hibernate:
+        format-sql: true
+        use-sql-comments: true
